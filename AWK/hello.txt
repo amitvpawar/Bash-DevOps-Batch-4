@@ -1,0 +1,13 @@
+#AWK- Scrpting language used for manipulating data and generating reports
+First
+second
+
+
+fifth
+awk 'BEGIN{code} {maincode} END{code}' input
+You can specify only main code also.
+
+TRY this Commands
+#cat hello.txt | awk '{print "Hello"}' hello.txt or
+#awk '{print "Hello"} hello.txt 
+##Prints only Hello word as many as lines resent in ths file

@@ -1,0 +1,34 @@
+NF- No. of Fields (Columns)
+NR- No. of Records (Rows)
+FS- Field Seperator
+Find below examples to understand
+echo "1 2 3 4 fifth sixth" | awk '{print NF}' #Output is 6
+echo "1 2 3 4 fifth sixth" | awk '{print NR}' #Output is 1
+
+echo "1 2 3 4 fifth sixth" | awk '{print $NF}' #Prints variable value of 6th as NF=6
+
+echo "1 2 3 4 5" | awk 'BEGIN{FS="3"} {print $1 "" $2 "" $3}' #Output is "1 2  4 5"
+echo "1 2 3 4 5 6 3 8 7 3 6" | awk 'BEGIN{FS="3"} {print $1 "" $2 "" $3}' #Output is "1 2  4 5 6  8 7"
+echo "1 2 3 4 5 6 3 8 7 3 6" | awk 'BEGIN{FS="3"} {print $1 "" $2 "" $3} END{print NF}' #Output ?
+Use case
+Example:-
+cat /etc/passwd | awk 'BEGIN{FS=":"} {print $1 " " $3}'
+#Output Gives you Username and UID for all users present
+cat /etc/passwd | awk 'BEGIN{FS=":"} /amit/{print $1 "-" $3}' #Specific Name or Pattern
+
+Record Seperator: RS
+
+Records by defaults seperated by line but you change it and seperated by something examples
+therefor NR gives you total lines present in file
+
+cat /etc/passwd | grep amit | awk 'BEGIN{RS=":"} {print $0}'
+#Output
+amit
+x
+1000
+1000
+Amit,,,
+/home/amit
+/bin/bash
+
+Records Seperated by : prints in New line. 

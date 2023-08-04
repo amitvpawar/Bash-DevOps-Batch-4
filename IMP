@@ -1,0 +1,28 @@
+Condition && Command1 || Command2
+
+In this case if the Condition is True then Command1 will execute but if Condtion is False then it will execute Command2.
+Example1:-
+I have "hello.txt" file exists
+
+[ -f hello.txt ] && echo Present || echo Not Exists
+
+This command gives you Result as "Present"
+Example2:
+"Hello.txt" file does not exists
+
+[ -f Hello.txt ] && echo Present || echo Not Exists
+
+This command gives you Result as "Not Exists"
+If the Condition is True(Exist status zero) then Command1 will execute but if the Command1
+False(Exit status non zero) then Command2 also will get execute.
+
+Example3:
+[ -f hello.txt ] && [ -f Hello.txt ] || echo "hello.txt present still executed"
+ 
+This command gives Result as "hello.txt present still executed"
+Reason:- as Hello.txt not present gives Exit status non zero.
+
+OR
+[ -f hello.txt ] && ech prsent || echo "hello.txt present still executed"
+
+In Command1 gives error as "ech" not an command
